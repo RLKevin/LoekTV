@@ -1,6 +1,7 @@
 const API_KEY = "AIzaSyAUCSTzBPyrChojzUP8KzW28_VIy4wO058";
 const PLAYLIST_ID = "PLZ4ny09ZUze2Risqpzt9rvV3yLzc_RPGi";
 let list = [];
+let deleted = [];
 
 function getVideos(t) {
 	var url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${API_KEY}&playlistId=${PLAYLIST_ID}&maxResults=50`;
@@ -40,6 +41,8 @@ function displayVideos(videos) {
 		if (video.snippet.thumbnails.medium != undefined) {
 			thumbnail.setAttribute("src", video.snippet.thumbnails.medium.url);
 		} else {
+			// add i to list
+			deleted.push(i);
 			continue;
 		}
 		videoLink.appendChild(thumbnail);
@@ -59,6 +62,9 @@ function displayVideos(videos) {
 		videoLink.appendChild(info);
 
 		videoContainer.appendChild(videoLink);
+	}
+	for (var i = 0; i < deleted.length; i++) {
+		videos.splice(deleted[i], 1);
 	}
 }
 
