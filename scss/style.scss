@@ -1,6 +1,23 @@
 $radius: 1rem;
 $padding: 2rem;
 
+// colors
+:root {
+	--fg: #fff;
+	--bg: #212121;
+	--bg-light: #333;
+	--accent: orangered;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--fg: #212121;
+		--bg: #eee;
+		--bg-light: #fff;
+		--accent: orangered;
+	}
+}
+
 *,
 *::before,
 *::after {
@@ -26,7 +43,7 @@ body {
 	font-size: 16px;
 	line-height: 1.5;
 	color: #333;
-	background-color: #eee;
+	background-color: var(--bg);
 	padding-bottom: 200px;
 }
 
@@ -38,7 +55,12 @@ body {
 	align-items: center;
 	gap: $padding;
 
+	h1 {
+		color: var(--fg);
+	}
+
 	svg {
+		color: var(--fg);
 		width: auto;
 		height: 50px;
 	}
@@ -53,8 +75,8 @@ body {
 	.video {
 		padding: $padding;
 		border-radius: $radius;
-		background-color: #fff;
-		color: #333;
+		background-color: var(--bg-light);
+		color: var(--fg);
 		text-decoration: none;
 
 		&:hover {
@@ -93,11 +115,11 @@ body {
 	width: 160px;
 	display: grid;
 	place-items: center;
-	background-color: orangered;
+	background-color: var(--accent);
 	box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 
 	svg {
-		color: white;
+		color: var(--fg);
 		width: 80px;
 		height: 80px;
 	}
