@@ -35,8 +35,8 @@ $padding: 1rem;
 @media (prefers-color-scheme: light) {
 	:root {
 		--fg: #212121;
-		--bg: #eee;
-		--bg-light: #fff;
+		--bg: #fff;
+		--bg-alt: #eee;
 		--accent: orangered;
 	}
 }
@@ -105,13 +105,15 @@ body {
 		padding: $padding;
 		color: var(--fg);
 		text-decoration: none;
+		background-color: transparent;
+		transition: background-color 0.1s ease;
 		@include tablet {
 			border-radius: $radius;
-			// background-color: var(--bg-light);
 		}
 
 		&:hover {
-			opacity: 0.9;
+			background-color: var(--bg-light);
+			// opacity: 0.9;
 		}
 
 		img {

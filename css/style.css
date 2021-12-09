@@ -8,8 +8,8 @@
 @media (prefers-color-scheme: light) {
   :root {
     --fg: #212121;
-    --bg: #eee;
-    --bg-light: #fff;
+    --bg: #fff;
+    --bg-alt: #eee;
     --accent: orangered;
   }
 }
@@ -93,6 +93,9 @@ body {
   padding: 1rem;
   color: var(--fg);
   text-decoration: none;
+  background-color: transparent;
+  -webkit-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
 }
 
 @media only screen and (min-width: 640px) {
@@ -102,7 +105,7 @@ body {
 }
 
 #video-container .video:hover {
-  opacity: 0.9;
+  background-color: var(--bg-light);
 }
 
 #video-container .video img {
